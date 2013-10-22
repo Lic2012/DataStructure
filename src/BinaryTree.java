@@ -12,9 +12,11 @@ public class BinaryTree {
 		 tree.insert("A7", 4);
 		 tree.insert("A8", 6);
 		 tree.insert("A9", 2);
-		 if (tree.find(3)!=null) 
-		 System.out.println(tree.find(3).id);
-		 System.out.println();
+		 NodeTree found = tree.find(5);
+		 if (found == null) System.out.println("not Found");
+		 else System.out.println("Found");
+		 System.out.println(found.leftChild.id+" "+found.leftChild.data);
+		 System.out.println(found.rightChild.id+" "+found.rightChild.data);
 
 	}
 	
@@ -35,7 +37,7 @@ class Tree{
 	public NodeTree find(int key){
 		NodeTree current = root;
 		while(current.data!=key){
-			if(current.data<key) current = current.leftChild;
+			if(key<current.data) current = current.leftChild;
 			else current = current.rightChild;
 			if (current == null) return null;
 		}
