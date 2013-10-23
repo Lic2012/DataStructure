@@ -12,11 +12,15 @@ public class BinaryTree {
 		 tree.insert("A7", 4);
 		 tree.insert("A8", 6);
 		 tree.insert("A9", 2);
+		 //find data=5 node
 		 NodeTree found = tree.find(5);
 		 if (found == null) System.out.println("not Found");
 		 else System.out.println("Found");
+		 //print its left child and right child
 		 System.out.println(found.leftChild.id+" "+found.leftChild.data);
 		 System.out.println(found.rightChild.id+" "+found.rightChild.data);
+		 //in-order traversal
+		 tree.inOrder(tree.getRoot());
 
 	}
 	
@@ -29,9 +33,15 @@ class NodeTree{
 	String id;
 	NodeTree leftChild;
 	NodeTree rightChild;
+	public void displayNode(){
+		System.out.println(this.id+" "+this.data);
+	}
 }
 
 class Tree{
+	/*
+	 * basic applications
+	 */
 	private NodeTree root;
 	
 	public NodeTree find(int key){
@@ -133,8 +143,19 @@ class Tree{
 		}
 		return successor;
 	}
+	
+	public NodeTree getRoot(){
+		return this.root;
+	}
 	/*
 	 * other applications
 	 */
-	
+	public void inOrder(NodeTree localRoot){
+		if (localRoot != null){
+			inOrder(localRoot.leftChild);
+			localRoot.displayNode();
+			inOrder(localRoot.rightChild);
+		}
 	}
+
+}
