@@ -43,7 +43,7 @@ class BST{
 		newNode.data = data;
 		if (root == null) root = newNode;
 		else{
-			TreeNode current = root; // current parent a good name
+			TreeNode current = root; // current parent are  good names
 			TreeNode parent;
 			while(true){
 				parent = current;
@@ -94,11 +94,11 @@ class BST{
 	public void nonRecursiveTraversalInorder(TreeNode localRoot){
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		while (localRoot!=null || !stack.isEmpty()){
-			while (localRoot != null){
+			while (localRoot != null){ //this is while
 				stack.push(localRoot);
 				localRoot = localRoot.leftChild;
 			}
-			if (!stack.isEmpty()){
+			if (!stack.isEmpty()){ //this is if
 				localRoot = stack.peek();
 				System.out.println(localRoot.id+" "+localRoot.data);
 				stack.pop();
